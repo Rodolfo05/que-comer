@@ -11,14 +11,10 @@ export const SeleccionIngredientes = () => {
 
     const [recetasEncontradas, setRecetasEncontradas] = useState([]);
 
-    const [lol, setLol] = useState({aaa: "123"});
-
     const handleChange = (e) => {
         document.getElementById("ulIngredientes").style.visibility = "visible";
         setTextoBuscado(e.target.value);
     }
-
-
 
     useEffect(() => {
         const resultados = ingredientesBD.filter(item => item.nombre.toLowerCase().includes(textoBuscado.toLowerCase()));
@@ -26,7 +22,6 @@ export const SeleccionIngredientes = () => {
         setResultadosEncontrados(resultados);
     }, [textoBuscado])
 
-    const {pathname} = location;
 
     useEffect(() => {
         if(recetasEncontradas.length > 0){
@@ -51,10 +46,7 @@ export const SeleccionIngredientes = () => {
 
     const navigate = useNavigate();
 
-    const redirigeARecetasEncontradas = () => {
-        navigate('/recetasEncontradas', {state: recetasEncontradas});
-    }
-
+    
     const buscarRecetas = () => {
 
         setRecetasEncontradas([]);
@@ -98,8 +90,8 @@ export const SeleccionIngredientes = () => {
 
                     <div key={`div-${item.id}`} className="btn-group" role="group" aria-label="Basic checkbox toggle button group">
 
-                        <input className='btn-check' id={`check-${item.id}`}autocomplete="off" key={`check-${item.id}`} onChange={onCheckIngrediente} type='checkbox' value={item.nombre} />
-                        <label className='btn btn-outline-primary lblCheckIngrediente' for={`check-${item.id}`} key={`lbl-${item.id}`}>{item.nombre}</label>
+                        <input className='btn-check' id={`check-${item.id}`}autoComplete="off" key={`check-${item.id}`} onChange={onCheckIngrediente} type='checkbox' value={item.nombre} />
+                        <label className='btn btn-outline-primary lblCheckIngrediente' htmlFor={`check-${item.id}`} key={`lbl-${item.id}`}>{item.nombre}</label>
 
                     </div>
 
@@ -109,9 +101,9 @@ export const SeleccionIngredientes = () => {
             <div>
                 <h3>Tus ingredientes:</h3>
             <ul>
-                {ingredientesSelected.map(ingrediente => {
+                {ingredientesSelected.map((ingrediente, index) => {
                      return(
-                        <li>{ingrediente}</li>
+                        <li key={index}>{ingrediente}</li>
                         )
                 })}
               </ul>

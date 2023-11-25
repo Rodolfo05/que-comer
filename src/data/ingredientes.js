@@ -1,26 +1,59 @@
 export const ingredientesBD = [
-    {
-        "id": 1,
-        "nombre": "Azúcar"
-    },
-    {
-        "id": 2,
-        "nombre": "Pasta"
-    },
-    {
-        "id": 3,
-        "nombre": "Queso"
-    },
-    {
-        "id": 4,
-        "nombre": "Leche"
-    },
-    {
-        "id": 5,
-        "nombre": "Sal"
-    },
-    {
-        "id": 6,
-        "nombre": "Arroz"
-    }
-]
+    { id: 1, nombre: 'Pollo' },
+    { id: 2, nombre: 'Carne de res' },
+    { id: 3, nombre: 'Pescado' },
+    { id: 4, nombre: 'Cerdo' },
+    { id: 5, nombre: 'Tofu' },
+    { id: 6, nombre: 'Huevos' },
+    { id: 7, nombre: 'Tomates' },
+    { id: 8, nombre: 'Cebollas' },
+    { id: 9, nombre: 'Ajo' },
+    { id: 10, nombre: 'Zanahorias' },
+    { id: 11, nombre: 'Pimientos (rojos, verdes, amarillos)' },
+    { id: 12, nombre: 'Espinacas' },
+    { id: 13, nombre: 'Champiñones' },
+    { id: 14, nombre: 'Brócoli' },
+    { id: 15, nombre: 'Calabacines' },
+    { id: 16, nombre: 'Berenjenas' },
+    { id: 17, nombre: 'Arroz' },
+    { id: 18, nombre: 'Quinoa' },
+    { id: 19, nombre: 'Lentejas' },
+    { id: 20, nombre: 'Garbanzos' },
+    { id: 21, nombre: 'Frijoles (negros, rojos, blancos)' },
+    { id: 22, nombre: 'Pasta' },
+    { id: 23, nombre: 'Albahaca' },
+    { id: 24, nombre: 'Orégano' },
+    { id: 25, nombre: 'Perejil' },
+    { id: 26, nombre: 'Cilantro' },
+    { id: 27, nombre: 'Tomillo' },
+    { id: 28, nombre: 'Romero' },
+    { id: 29, nombre: 'Cúrcuma' },
+    { id: 30, nombre: 'Comino' },
+    { id: 31, nombre: 'Pimienta negra' },
+    { id: 32, nombre: 'Sal' },
+    { id: 33, nombre: 'Aceite de oliva' },
+    { id: 34, nombre: 'Aceite vegetal' },
+    { id: 35, nombre: 'Mantequilla' },
+    { id: 36, nombre: 'Aguacate' },
+    { id: 37, nombre: 'Queso (mozzarella, cheddar, parmesano, etc.)' },
+    { id: 38, nombre: 'Leche' },
+    { id: 39, nombre: 'Yogur' },
+    { id: 40, nombre: 'Crema agria' },
+    { id: 41, nombre: 'Harina' },
+    { id: 42, nombre: 'Pan rallado' },
+    { id: 43, nombre: 'Avena' },
+    { id: 44, nombre: 'Pan' },
+    { id: 45, nombre: 'Azúcar' },
+    { id: 46, nombre: 'Miel' },
+    { id: 47, nombre: 'Jarabe de arce' },
+    { id: 48, nombre: 'Mostaza' },
+    { id: 49, nombre: 'Ketchup' },
+    { id: 50, nombre: 'Vinagre balsámico' },
+    { id: 51, nombre: 'Mayonesa' },
+    { id: 52, nombre: 'Salsa picante' },
+    { id: 53, nombre: 'Manzanas' },
+    { id: 54, nombre: 'Plátanos' },
+    { id: 55, nombre: 'Nueces' },
+    { id: 56, nombre: 'Almendras' },
+    { id: 57, nombre: 'Pasas' }
+  ];
