@@ -1,0 +1,17 @@
+div .seleccionIngredientes{
+  padding: 20px 40px;
+}
+
+#ulIngredientes{
+  position: relative;
+  left: -30px;  
+}
+
+.btn-group{
+  padding-top: 20px;
+  padding-right: 10px;
+}
+
+.lblCheckIngrediente{
+  
+}
