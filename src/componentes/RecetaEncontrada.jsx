@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom/dist'
 
 
-export const RecetaEncontrada = ({nombre, ingredientes, tiempoPrep}) => {
+export const RecetaEncontrada = ({id, nombre, ingredientes, tiempoPrep}) => {
 
     const [recetaSeleccionada, setRecetaSeleccionada] = useState(null);
 
@@ -15,12 +15,9 @@ export const RecetaEncontrada = ({nombre, ingredientes, tiempoPrep}) => {
 
     const navigate = useNavigate();
 
-    const goToPreparacion = (nombreReceta) => {
-        setRecetaSeleccionada(nombreReceta);
-   
+    const goToPreparacion = (id) => {
+        setRecetaSeleccionada(id);
     }
-
-    
 
     const retornaIngredientes = () => {
 
@@ -40,7 +37,7 @@ export const RecetaEncontrada = ({nombre, ingredientes, tiempoPrep}) => {
     }
 
     return (
-        <div className='recetaEncontrada-caja' onClick={() => goToPreparacion(nombre)}>
+        <div className='recetaEncontrada-caja' onClick={() => goToPreparacion(id)}>
             <h4>{nombre}</h4>
 
             <label>Ingredientes: {retornaIngredientes()}</label>

@@ -2,25 +2,18 @@ export const preparaciones = [
     {
         "id_receta": 1,
         "pasos": [
-            "Preparar la masa:",
-            "- En un tazón pequeño, combina la levadura, el azúcar y el agua tibia. Deja reposar durante 5-10 minutos hasta que la mezcla se vuelva espumosa.",
-            "- En un tazón grande, mezcla la harina y la sal. Agrega la mezcla de levadura y el aceite de oliva. Mezcla hasta que se forme una masa.",
-            "- Amasa la masa en una superficie enharinada durante unos 5-7 minutos, o hasta que esté suave y elástica.",
-            "- Coloca la masa en un tazón engrasado, cúbrelo con un paño húmedo y deja reposar en un lugar cálido durante aproximadamente 1 hora, o hasta que la masa haya duplicado su tamaño.",
-
-            "Preparar la salsa:",
-            "- En una cacerola, calienta un poco de aceite de oliva y saltea el ajo hasta que esté fragante.",
-            "- Agrega los tomates triturados, orégano, albahaca, sal y pimienta. Cocina a fuego lento durante 15-20 minutos.",
-
-            "Preparar la pizza:",
-            "- Precalienta el horno a 220°C.",
-            "- Divide la masa en porciones según el tamaño de las pizzas deseadas.",
-            "- Estira cada porción en una superficie enharinada para formar la base de la pizza.",
-            "- Coloca la masa en una bandeja para horno enharinada o en una piedra para pizza.",
-            "- Extiende la salsa de tomate sobre la masa y agrega el queso mozzarella rallado y tus ingredientes favoritos.",
-
-            "Hornear:",
-            "- Hornea en el horno precalentado durante 12-15 minutos, o hasta que la masa esté dorada y el queso esté burbujeante."
+            "En un tazón pequeño, combina la levadura, el azúcar y el agua tibia. Deja reposar durante 5-10 minutos hasta que la mezcla se vuelva espumosa.",
+            "En un tazón grande, mezcla la harina y la sal. Agrega la mezcla de levadura y el aceite de oliva. Mezcla hasta que se forme una masa.",
+            "Amasa la masa en una superficie enharinada durante unos 5-7 minutos, o hasta que esté suave y elástica.",
+            "Coloca la masa en un tazón engrasado, cúbrelo con un paño húmedo y deja reposar en un lugar cálido durante aproximadamente 1 hora, o hasta que la masa haya duplicado su tamaño.",
+            "En una cacerola, calienta un poco de aceite de oliva y saltea el ajo hasta que esté fragante.",
+            "Agrega los tomates triturados, orégano, albahaca, sal y pimienta. Cocina a fuego lento durante 15-20 minutos.",
+            "Precalienta el horno a 220°C.",
+            "Divide la masa en porciones según el tamaño de las pizzas deseadas.",
+            "Estira cada porción en una superficie enharinada para formar la base de la pizza.",
+            "Coloca la masa en una bandeja para horno enharinada o en una piedra para pizza.",
+            "Extiende la salsa de tomate sobre la masa y agrega el queso mozzarella rallado y tus ingredientes favoritos.",
+            "Hornea en el horno precalentado durante 12-15 minutos, o hasta que la masa esté dorada y el queso esté burbujeante."
         ]
     },
     {

@@ -16,6 +16,7 @@ export const RecetasEncontradas = () => {
         return(
           <RecetaEncontrada 
             key={receta.id} 
+            id={receta.id} 
             nombre={receta.nombre} 
             ingredientes={receta.ingredientes}
             tiempoPrep={receta.tiempo_preparacion}  

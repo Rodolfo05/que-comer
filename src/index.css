@@ -23,10 +23,14 @@ div .seleccionIngredientes{
   background-color: rgb(196, 196, 196);
   padding: 10px 10px;
   margin-bottom: 10px;
+  cursor: pointer;
+}
+
+.recetaEncontrada-caja label{
+  cursor: pointer;
 }
 
 .recetaEncontrada-caja:hover{
   background-color: rgb(58, 58, 58);
-  cursor: pointer;
   color: #ccc;
 }
