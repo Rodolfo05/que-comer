@@ -6,7 +6,10 @@ export const RecetasApp = () => {
 
   return (
     <>
-      <Navbar />
+      {/* <Navbar /> */}
+      <div className="divima">
+      <img src="images/fondo.jpg" className="imge"/>
+      </div>
       <RecetasAppRouter />
 
 
