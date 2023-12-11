@@ -1,52 +1,52 @@
 import React, { useEffect, useState } from 'react'
 import { useLocation } from 'react-router-dom/dist'
-import {preparaciones} from '../data/preparaciones';
+import { preparaciones } from '../data/preparaciones';
 
 export const Preparacion = () => {
 
-const idReceta = useLocation();
+  const idReceta = useLocation();
 
-const [preparacionEncontrada, setPreparacionEncontrada] = useState(null);
+  const [preparacionEncontrada, setPreparacionEncontrada] = useState(null);
 
-useEffect(() => {
-  const resultado = preparaciones.filter(prep => prep.id_receta === idReceta.state);
+  useEffect(() => {
+    const resultado = preparaciones.filter(prep => prep.id_receta === idReceta.state);
 
-  setPreparacionEncontrada(resultado[0].pasos);
-}, [idReceta]);
+    setPreparacionEncontrada(resultado[0].pasos);
+  }, [idReceta]);
 
 
-const buscaPreparacion = (idReceta) => {
+  const buscaPreparacion = (idReceta) => {
 
-}
+  }
 
   return (
-    <div>
-        <h2>Preparacion</h2>
+    <div className='container pt-4'>
 
-        <div className='preparacion-caja'>
+      <h2>Preparacion</h2>
 
-      {preparacionEncontrada ? 
+      <div className='preparacion-caja'>
+
+        {preparacionEncontrada ?
           (
-        
 
             <ol type='1'>
               {
                 preparacionEncontrada.map(pasos => {
-                  return(
-                    <li>{pasos}</li>
+                  return (
+                    <li className='preparacion-pasos'>{pasos}</li>
                   )
                 })
               }
-              </ol>
-      
-            )
-       : 
-       null}
+            </ol>
 
-        </div>
-        
-        
+          )
+          :
+          null}
+
+      </div>
+
+
     </div>
- 
+
   )
 }

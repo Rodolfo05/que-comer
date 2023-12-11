@@ -5,10 +5,10 @@ import { RecetaEncontrada } from './RecetaEncontrada';
 export const RecetasEncontradas = () => {
 
   const recetas = useLocation();
-
+  console.log(recetas)
 
   return (
-    <div>
+    <div className='container pt-4'>
       <h2>Recetas Encontradas</h2>
 
       {recetas.state.map(receta => {

@@ -2,8 +2,25 @@ import React, { useEffect, useState } from 'react'
 import { ingredientesBD } from '../data/ingredientes'
 import { recetasBD } from '../data/recetas';
 import { useNavigate } from 'react-router-dom';
+import { Modal } from './Modal';
+import styled from 'styled-components';
 
 export const SeleccionIngredientes = () => {
+
+    const [estadoModal, setEstadoModal] = useState(false);
+
+    ingredientesBD.sort(function (a, b) {
+        var nombreA = a.nombre.toUpperCase(); // Ignorar mayúsculas y minúsculas
+        var nombreB = b.nombre.toUpperCase(); // Ignorar mayúsculas y minúsculas
+        if (nombreA < nombreB) {
+            return -1;
+        }
+        if (nombreA > nombreB) {
+            return 1;
+        }
+        // Los nombres son iguales
+        return 0;
+    });
 
     const [textoBuscado, setTextoBuscado] = useState("Lec");
     const [resultadosEncontrados, setResultadosEncontrados] = useState(null);
@@ -12,7 +29,7 @@ export const SeleccionIngredientes = () => {
     const [recetasEncontradas, setRecetasEncontradas] = useState([]);
 
     const handleChange = (e) => {
-        document.getElementById("ulIngredientes").style.visibility = "visible";
+        document.getElementById("div-ingredientes").style.visibility = "visible";
         setTextoBuscado(e.target.value);
     }
 
@@ -24,11 +41,11 @@ export const SeleccionIngredientes = () => {
 
 
     useEffect(() => {
-        if(recetasEncontradas.length > 0){
-            navigate('/recetasEncontradas', {state: recetasEncontradas});
+        if (recetasEncontradas.length > 0) {
+            navigate('/recetasEncontradas', { state: recetasEncontradas, ingre: ingredientesSelected });
         }
     }, [recetasEncontradas])
-    
+
 
 
     const onCheckIngrediente = (e) => {
@@ -46,7 +63,14 @@ export const SeleccionIngredientes = () => {
 
     const navigate = useNavigate();
 
-    
+    const handleSubmit = (event) => {
+        event.preventDefault();
+
+        setEstadoModal(!estadoModal);
+
+    }
+
+
     const buscarRecetas = () => {
 
         setRecetasEncontradas([]);
@@ -54,16 +78,19 @@ export const SeleccionIngredientes = () => {
         ingredientesSelected.map(ingrediente => {
 
             recetasBD.map(receta => {
-                let tieneIngrediente = false;
+                let tieneReceta = false;
 
                 const result = receta.ingredientes.filter(item => item == ingrediente);
 
                 if (result.length) {
-                    tieneIngrediente = true;
+                    tieneReceta = true;
                 };
 
-                if (tieneIngrediente) {
+                if (tieneReceta) {
                     setRecetasEncontradas(recetasEncontradas => [...recetasEncontradas, receta]);
+                } else {
+                    console.log("No se ha encontrado receta, tirar un modal");
+                    setEstadoModal(true);
                 }
             });
 
@@ -71,55 +98,103 @@ export const SeleccionIngredientes = () => {
 
         console.log(recetasEncontradas)
 
-    //    redirigeARecetasEncontradas();
+        //    redirigeARecetasEncontradas();
 
     }
 
 
 
     return (
-        <>
-        <div className='seleccionIngredientes'>
-            
-            <h3>Seleccione los ingredientes que tiene en casa:</h3>
-            
-            <input type='text' className='form-control' placeholder='Harina, Leche, Tomates, etc...' value={textoBuscado} onChange={handleChange} />
+        <div className='container pt-4'>
+            <div className='seleccionIngredientes'>
 
-            <ul id='ulIngredientes' style={{visibility: 'hidden'}}>
-                {resultadosEncontrados?.map(item => (
+                <h3>Seleccione los ingredientes que tiene en casa:</h3>
 
-                    <div key={`div-${item.id}`} className="btn-group" role="group" aria-label="Basic checkbox toggle button group">
+                <input type='text' className='form-control' placeholder='Harina, Leche, Tomates, etc...' value={textoBuscado} onChange={handleChange} />
 
-                        <input className='btn-check' id={`check-${item.id}`}autoComplete="off" key={`check-${item.id}`} onChange={onCheckIngrediente} type='checkbox' value={item.nombre} />
-                        <label className='btn btn-outline-primary lblCheckIngrediente' htmlFor={`check-${item.id}`} key={`lbl-${item.id}`}>{item.nombre}</label>
+                <div id='div-ingredientes' className='container' style={{ visibility: 'hidden' }}>
+                    {resultadosEncontrados?.map(item => (
 
-                    </div>
+                        <div key={`div-${item.id}`} className="btn-group" role="group" aria-label="Basic checkbox toggle button group">
 
-                ))}
-            </ul>
+                            <input className='btn-check' id={`check-${item.id}`} autoComplete="off" key={`check-${item.id}`} onChange={onCheckIngrediente} type='checkbox' value={item.nombre} />
+                            <label className='btn btn-outline-primary lblCheckIngrediente' htmlFor={`check-${item.id}`} key={`lbl-${item.id}`}>{item.nombre}</label>
 
-            <div>
-                <h3>Tus ingredientes:</h3>
-            <ul>
-                {ingredientesSelected.map((ingrediente, index) => {
-                     return(
-                        <li key={index}>{ingrediente}</li>
-                        )
-                })}
-              </ul>
+                        </div>
+
+                    ))}
+                </div>
+
+                <hr />
+
+                <div className='pt-5'>
+                    <h3>Tus ingredientes:</h3>
+                    <ul>
+                        {ingredientesSelected.map((ingrediente, index) => {
+                            return (
+                                <li key={index}>{ingrediente}</li>
+                            )
+                        })}
+                    </ul>
+                </div>
+
+                <button className='btn btn-primary' onClick={buscarRecetas}>Buscar Recetas</button>
+
             </div>
 
-            <button className='btn btn-primary' onClick={buscarRecetas}>Buscar Recetas</button>
+            <Modal estado={estadoModal} cambiarEstado={setEstadoModal}>
+                <Contenido>
+                    <h3>No se han encontrado recetas. <i class="fa-regular fa-circle-check"></i></h3>
+                    <p>Intente añadiendo mas ingredientes en la búsqueda.</p>
+                    <Boton onClick={() => setEstadoModal(false)}>Aceptar</Boton>
+                </Contenido>
+            </Modal>
 
-            <div>
-                <p>{JSON.stringify(recetasEncontradas)}</p>
-            </div>
 
-            
         </div>
 
- 
-        </>
-       
     )
 }
+
+
+const Boton = styled.button`
+	display: block;
+	padding: 10px 30px;
+	border-radius: 20px; 
+  border: 0px;
+	color: #fff;
+	cursor: pointer;
+	font-family: 'Roboto', sans-serif;
+	font-weight: 500;
+	transition: .3s ease all;
+  box-shadow: 0px 0px 14px -7px #FF512F;
+  background: #f09819;
+
+	&:hover {
+		background: #FF512F;
+	}
+`;
+
+const Contenido = styled.div`
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+
+
+	h1 {
+		font-size: 42px;
+		font-weight: 700;
+		margin-bottom: 10px;
+	}
+
+	p {
+		font-size: 18px;
+		margin-bottom: 20px;
+	}
+
+	img {
+		width: 100%;
+		vertical-align: top;
+		border-radius: 3px;
+	}
+`;
