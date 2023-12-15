@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "http://Rodolfo05.github.io/que-comer",
+  "homepage": "https://Rodolfo05.github.io/que-comer",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
