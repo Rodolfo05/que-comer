@@ -22,7 +22,7 @@ export const Preparacion = () => {
   return (
     <div className='container pt-4'>
 
-      <h2>Preparacion</h2>
+      <h2>Preparacion:</h2>
 
       <div className='preparacion-caja'>
 

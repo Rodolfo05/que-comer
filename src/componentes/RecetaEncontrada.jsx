@@ -42,7 +42,7 @@ export const RecetaEncontrada = ({id, nombre, ingredientes, tiempoPrep}) => {
 
             <label>Ingredientes: {retornaIngredientes()}</label>
             <p>Tiempo Preparación: {tiempoPrep} minutos.</p>
-            <p>Te faltan estos ingredientes: ...</p>
+            {/* <p>Te faltan estos ingredientes: ...</p> */}
             <h4>{recetaSeleccionada}</h4>
         </div>
     )

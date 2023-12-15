@@ -1,8 +1,75 @@
 
-
-div .seleccionIngredientes{
-  padding: 20px 40px;
+body{
+  background: rgb(236,236,233);
+background: linear-gradient(180deg, rgba(236,236,233,1) 3%, rgba(242,241,241,1) 48%, rgba(236,236,233,1) 96%);
 }
+
+/*LOGO*/
+i{
+  height: 42px;
+  font-size: 33px;
+  color: rgb(23, 35, 145);
+}
+
+.fa-bowl-food{
+  padding: 1px 17px;
+}
+
+.fa-utensils{
+  padding: 1px 0;
+}
+
+.navbar{
+  color: #171717;
+}
+
+.navbar .container{
+  justify-content: center;
+}
+
+.seleccionIngredientes{
+  padding: 20px 40px;
+  width: 100%;
+  background-color: #ffffff;
+  border-radius: 15px;
+}
+
+.mis-ingredientes{
+  padding: 20px 40px;
+  margin: 20px 0px;
+  width: 100%;
+  background-color: #ffffff;
+  border-radius: 15px;
+}
+
+.container-btn{
+
+  display: flex;
+  justify-content: center;
+}
+
+.container-btn button{
+  width: 20%;
+}
+
+
+.container-mis-ingredientes{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.caja-mis-ingrediente{
+  width: 10%;
+  border-radius: 5px;
+  background: rgb(218,52,221);
+background: linear-gradient(180deg, rgba(218,52,221,1) 52%, rgba(132,24,191,1) 100%);
+  color: #ffffff;
+  margin: 4px;
+  padding: 4px;
+  text-align: center;
+}
+
 
 #ulIngredientes{
   position: relative;
@@ -30,19 +97,33 @@ div .seleccionIngredientes{
 .recetaEncontrada-caja{
   border: 1px solid black;
   border-radius: 11px;
-  background-color: rgb(223, 223, 223);
+  background-color: rgb(255, 255, 255);
   padding: 10px 10px;
   margin-bottom: 10px;
   cursor: pointer;
+  color: rgb(23, 35, 145);
 }
 
-.recetaEncontrada-caja label{
-  cursor: pointer;
+.preparacion-caja{
+  border: 1px solid black;
+  border-radius: 11px;
+  background-color: rgb(255, 255, 255);
+  padding: 10px 10px;
+  margin-bottom: 10px;
+  color: rgb(23, 35, 145);
+  font-weight: 500;
 }
+
+.preparacion-caja li:hover{
+  color: rgb(15, 23, 92);
+  font-weight: 700;
+
+}
+
 
 .recetaEncontrada-caja:hover{
-  background-color: rgb(185, 185, 185);
-  color: #171717;
+  background-color: rgb(75, 70, 143);
+  color: #ffffff;
 }
 
 .divima{

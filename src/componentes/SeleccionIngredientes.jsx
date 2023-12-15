@@ -22,7 +22,7 @@ export const SeleccionIngredientes = () => {
         return 0;
     });
 
-    const [textoBuscado, setTextoBuscado] = useState("Lec");
+    const [textoBuscado, setTextoBuscado] = useState("");
     const [resultadosEncontrados, setResultadosEncontrados] = useState(null);
     const [ingredientesSelected, setIngredientesSelected] = useState([]);
 
@@ -106,12 +106,13 @@ export const SeleccionIngredientes = () => {
 
     return (
         <div className='container pt-4'>
+
             <div className='seleccionIngredientes'>
 
                 <h3>Seleccione los ingredientes que tiene en casa:</h3>
-
+          
                 <input type='text' className='form-control' placeholder='Harina, Leche, Tomates, etc...' value={textoBuscado} onChange={handleChange} />
-
+             
                 <div id='div-ingredientes' className='container' style={{ visibility: 'hidden' }}>
                     {resultadosEncontrados?.map(item => (
 
@@ -124,23 +125,28 @@ export const SeleccionIngredientes = () => {
 
                     ))}
                 </div>
-
-                <hr />
-
-                <div className='pt-5'>
-                    <h3>Tus ingredientes:</h3>
-                    <ul>
-                        {ingredientesSelected.map((ingrediente, index) => {
-                            return (
-                                <li key={index}>{ingrediente}</li>
-                            )
-                        })}
-                    </ul>
-                </div>
-
-                <button className='btn btn-primary' onClick={buscarRecetas}>Buscar Recetas</button>
-
             </div>
+
+
+
+            <div className='mis-ingredientes'>
+                <h3>Tus ingredientes:</h3>
+                <div className='container-mis-ingredientes'>
+                    {ingredientesSelected.map((ingrediente, index) => {
+                        return (
+                            <div className='caja-mis-ingrediente'>
+                                <label key={index}>{ingrediente}</label>
+                            </div>
+                        )
+                    })}
+                </div>
+            </div>
+
+            <div className='container-btn'>
+                <button className='btn btn-primary' onClick={buscarRecetas}>Buscar Recetas</button>
+            </div>
+
+
 
             <Modal estado={estadoModal} cambiarEstado={setEstadoModal}>
                 <Contenido>
